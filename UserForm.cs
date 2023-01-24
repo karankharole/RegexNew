@@ -12,24 +12,15 @@ namespace RegexNew
         public static void userForm()
         {
             string first = @"^[A-Z]{1}[a-z A-Z]{2,10}";
-            string emailPattern = @"^[A-Za-z]{3,}([.][A-Za-z]{3,})?[@][A-Za-z]{2,}[.][A-Za-z]{2,}([.][A-Za-z]{2})?$";
 
             Console.Write("Enter first name : ");
             string fName = Console.ReadLine();
             Console.Write("Enter last name : ");
             string lName = Console.ReadLine();
-            Console.Write("Enter your email address : ");
-            string email = Console.ReadLine();
 
             Regex name = new Regex(first);
-
-            Regex emailValidate = new Regex(emailPattern);
-
             bool frst = name.IsMatch(fName);
             bool lst = name.IsMatch(lName);
-            bool emailResult = emailValidate.IsMatch(email);
-
-
 
 
             if (frst)
@@ -46,18 +37,44 @@ namespace RegexNew
             }
             else
             {
-                Console.WriteLine("Invalide last name");
+                Console.WriteLine("Invalid last name");
             }
+        }
+
+        public static void userEmail()
+        {
+            string emailPattern = @"^[a][b][c]+([.][a-z A-Z 0-9]+)*@[bl]+.[co]{2,10}([.][a-z A-Z]{1,5})?$";
+            Console.Write("Enter your email address : ");
+            string email = Console.ReadLine();
+            Regex emailValidate = new Regex(emailPattern);
+            bool emailResult = emailValidate.IsMatch(email);
+
             if (emailResult)
             {
                 Console.WriteLine($" Valid email  {email}");
             }
             else
             {
-                Console.WriteLine("Invalid email");
+                Console.WriteLine("Invalid email address.");
             }
+        }
 
+        public static void userMobile()
+        {
+            Console.WriteLine("Enter mobile number : ");
+            long userNumber = Convert.ToInt64(Console.ReadLine());
 
+            Regex mob = new Regex(@"[6-9]{1}[0-9]{9}");
+            bool mobileNum = mob.IsMatch(userNumber.ToString());
+            if (mobileNum)
+            {
+                Console.WriteLine("Valid Mobile number : " + userNumber);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Mobile number : " + userNumber);
+
+            }
         }
     }
 }
