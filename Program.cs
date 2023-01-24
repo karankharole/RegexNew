@@ -4,9 +4,7 @@
     {
         static void Main(string[] args)
         {
-            UserForm.userForm();
-            UserForm.userEmail();
-            UserForm.userMobile();
+            UserForm.upperCasePassword();
         }
     }
 }
