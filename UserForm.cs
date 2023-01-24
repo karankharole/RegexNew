@@ -12,17 +12,31 @@ namespace RegexNew
         public static void userForm()
         {
             string first = @"^[A-Z]{1}[a-z A-Z]{2,10}";
-            Console.WriteLine("Enter first name : ");
+            Console.Write("Enter first name : ");
             string fName = Console.ReadLine();
+            Console.Write("Enter last name : ");
+            string lName = Console.ReadLine();
+
             Regex name = new Regex(first);
-            bool n = name.IsMatch(fName);
-            if (n)
+
+            bool frst = name.IsMatch(fName);
+            bool lst = name.IsMatch(lName);
+
+            if (frst)
             {
-                Console.WriteLine($" Valid First Name: {fName}");
+                Console.WriteLine($" Valide First Name {fName}");
             }
             else
             {
-                Console.WriteLine("Invalid first name");
+                Console.WriteLine("Invalide first name");
+            }
+            if (lst)
+            {
+                Console.WriteLine($" Valide Last Name {lName}");
+            }
+            else
+            {
+                Console.WriteLine("Invalide last name");
             }
 
         }
