@@ -12,32 +12,51 @@ namespace RegexNew
         public static void userForm()
         {
             string first = @"^[A-Z]{1}[a-z A-Z]{2,10}";
+            string emailPattern = @"^[A-Za-z]{3,}([.][A-Za-z]{3,})?[@][A-Za-z]{2,}[.][A-Za-z]{2,}([.][A-Za-z]{2})?$";
+
             Console.Write("Enter first name : ");
             string fName = Console.ReadLine();
             Console.Write("Enter last name : ");
             string lName = Console.ReadLine();
+            Console.Write("Enter your email address : ");
+            string email = Console.ReadLine();
 
             Regex name = new Regex(first);
 
+            Regex emailValidate = new Regex(emailPattern);
+
             bool frst = name.IsMatch(fName);
             bool lst = name.IsMatch(lName);
+            bool emailResult = emailValidate.IsMatch(email);
+
+
+
 
             if (frst)
             {
-                Console.WriteLine($" Valide First Name {fName}");
+                Console.WriteLine($" Valid First Name {fName}");
             }
             else
             {
-                Console.WriteLine("Invalide first name");
+                Console.WriteLine("Invalid first name");
             }
             if (lst)
             {
-                Console.WriteLine($" Valide Last Name {lName}");
+                Console.WriteLine($" Valid Last Name {lName}");
             }
             else
             {
                 Console.WriteLine("Invalide last name");
             }
+            if (emailResult)
+            {
+                Console.WriteLine($" Valid email  {email}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid email");
+            }
+
 
         }
     }
