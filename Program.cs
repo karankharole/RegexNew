@@ -4,7 +4,11 @@
     {
         static void Main(string[] args)
         {
-            UserForm.upperCasePassword();
+            UserForm user = new UserForm();
+            user.UserInputName();
+            user.Email();
+            user.MobileNumber();
+            user.PassWord();
         }
     }
 }
